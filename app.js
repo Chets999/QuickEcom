@@ -1,3 +1,3 @@
 function
 
-var x=10
+var x=100
