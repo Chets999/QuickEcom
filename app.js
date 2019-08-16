@@ -1,3 +1,3 @@
-function
+funcX
 
 var x=999
