@@ -16,7 +16,8 @@ module.exports.create = (req, res) => {
 
     const data = req.body
     const category = new Category(data)
-    category.userId = req.user._id
+    category.organisationId = req.user.organisationId
+
     category.save()
         .then(categories => {
             res.json(categories)
