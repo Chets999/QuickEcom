@@ -14,6 +14,11 @@ const brandSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Category'
     }]
+    ,
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
+    }
 
 
 })
