@@ -1,28 +1,29 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 
-const categorySchema = new Schema ({
+const categorySchema = new Schema({
 
-    name:{
+    name: {
         type: String,
         required: true,
         unique: true
     },
-    brands: [
-         {
-            type: Schema.Types.ObjectId,
-            ref: 'Brand'
-        }
-    ],
-    pricingID:{
+    brands: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Brand'
+    }],
+    pricingID: {
         type: Schema.Types.ObjectId,
         ref: 'Pricing'
+    },
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
     }
-
 
 })
 
-const Category = mongoose.model('Category',categorySchema)
+const Category = mongoose.model('Category', categorySchema)
 
 module.exports = Category

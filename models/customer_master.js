@@ -1,41 +1,45 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 
-const customerSchema = new Schema ({
+const customerSchema = new Schema({
 
     companyName: {
-                        type: String,
-                        required: true,
-                        unique: true
+        type: String,
+        required: true,
+        unique: true
     },
-    type:{
-                        type: String,  //Online or Offline or Wholesalers
-                        required: true
-    },     
-    companyEmail:{ 
-                        type: String,
-                        required: true,
-                        unique: true
+    type: {
+        type: String,  //Online or Offline or Wholesalers
+        required: true
     },
-    companyContact: { 
-                        type: String,
-                        required: true,
-                        unique: true
+    companyEmail: {
+        type: String,
+        required: true,
+        unique: true
     },
-    shippingAddress : {
-                        type: String,
-                        required: true,
-                        unique: true
+    companyContact: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    shippingAddress: {
+        type: String,
+        required: true,
+        unique: true
     },
     pricingGroupId: {
         type: Schema.Types.ObjectId,
-        ref: 'Pricing'       
-        }
+        ref: 'Pricing'
+    },
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
+    }
 
 
 })
 
-const Customer = mongoose.model('Customer',customerSchema)
+const Customer = mongoose.model('Customer', customerSchema)
 
 module.exports = Customer
