@@ -24,3 +24,21 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkZWM5YjVhYTUwMjEwZTg4ZjAwZTU
         "__v": 0
     }
 ]
+
+
+{
+    "brands": [],
+    "_id": "5d5dfaf419ec76263c5fe46d",
+    "name": "TV",
+    "organisationId": "5d5dec9b5aa50210e88f00e4",
+    "__v": 0
+}
+
+
+Mobile: "5d5e2e191c9d4400005db0bf"
+
+TV:"5d5e20e4f84e244b2849f226"
+
+
+	"name":"CGI",
+	"categories":["5d5e33cd0c8dfd39ecb4299c","5d5e20e4f84e244b2849f226","5d5e34c90c8dfd39ecb4299f]

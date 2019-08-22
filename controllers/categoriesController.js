@@ -1,5 +1,5 @@
 const Category = require('../models/category_master')
-const Brands = require('../models/brand_master')
+const Brand = require('../models/brand_master')
 
 
 
@@ -28,7 +28,6 @@ module.exports.create = (req, res) => {
     const data = req.body
     const category = new Category(data)
     category.organisationId = req.user.organisationId
-
     category.save()
         .then(categories => {
             res.json(categories)
@@ -39,15 +38,25 @@ module.exports.create = (req, res) => {
 }
 
 
-module.exports.update=(req,res) =>{
-    const id=req.params.id
-    const body=req.body
+module.exports.update = (req, res) => {
+    const id = req.params.id
+    const body = req.body
     Category.findByIdAndUpdate(id, { $set: body }, { new: true, runValidators: true })
-        .then(category =>{
+        .then(category => {
             res.json(category)
         })
-        .catch(err =>{
+        .catch(err => {
             res.json(err)
         })
 }
 
+module.exports.destroy = (req, res) => {
+    const id = req.params.id
+    Category.findByIdAndDelete({ _id: id })
+        .then(category =>
+            res.send(category))
+        .catch(err => {
+            res.json(err)
+        })
+
+}

@@ -14,8 +14,8 @@ module.exports.list = (req, res) => {
 module.exports.show = (req, res) => {
     const id = req.params.id
     Brand.findById({ _id: id, organisationId: req.user.organisationId })
-        .then(category => {
-            res.json(category)
+        .then(brand => {
+            res.json(brand)
         })
         .catch(err => {
             res.json(err)
@@ -31,9 +31,44 @@ module.exports.create = (req, res) => {
 
     brand.save()
         .then(brand => {
+            console.log(data.categories)
+            Category.updateMany({
+                _id: { $in: [...data.categories] }
+            }, { $addToSet: { 'brands': brand._id } }, { new: true, runValidators: true })
+                .then(category => {
+                    console.log(brand)
+                    res.json(category)
+                })
+                .catch(err => {
+                    console.log(brand)
+                    res.json(err)
+                })
+
+        })
+        .catch(err => {
+            res.json(err)
+        })
+}
+
+module.exports.update = (req, res) => {
+    const id = req.params.id
+    const body = req.body
+    Brand.findByIdAndUpdate(id, { $set: body }, { new: true, runValidators: true })
+        .then(brand => {
             res.json(brand)
         })
         .catch(err => {
             res.json(err)
         })
+}
+
+module.exports.destroy = (req, res) => {
+    const id = req.params.id
+    Brand.findByIdAndDelete({ _id: id })
+        .then(brand =>
+            res.send(brand))
+        .catch(err => {
+            res.json(err)
+        })
+
 }

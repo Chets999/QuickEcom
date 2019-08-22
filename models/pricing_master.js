@@ -9,9 +9,8 @@ const pricingSchema = new Schema({
         required: true,
         unique: true
     },
-
     action: {
-        type: String, //Discount % will be mentioned here 
+        type: Number, //Discount % will be mentioned here 
         required: true,
         unique: true
     },

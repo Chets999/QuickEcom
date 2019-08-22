@@ -26,6 +26,18 @@ module.exports.show = (req, res) => {
         })
 }
 
+module.exports.destroy = (req, res) => {
+    const id = req.params.id
+    Organisation.findByIdAndDelete({ _id: id })
+        .then(organisations =>
+            res.send(organisations))
+        .catch(err => {
+            res.json(err)
+        })
+
+}
+
+
 module.exports.destroyAll = (req, res) => {
     Organisation.deleteMany()
         .then(organisations =>
