@@ -71,7 +71,7 @@ module.exports.create = (req, res) => {
         })
 }
 
-module.exports.delete = (req, res) => {
+module.exports.destroyAll = (req, res) => {
     User.deleteMany()
         .then(users =>
             res.send('all users deleted successfully '))

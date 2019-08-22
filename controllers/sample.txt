@@ -1,0 +1,57 @@
+/*const User=require('../models/User')
+
+module.exports.list=(req,res) =>{
+    User.find()
+        .then((users) =>{
+            res.json(users)
+        })
+        .catch(err =>{
+            res.json(err)
+        })
+}
+
+module.exports.show=(req,res) =>{
+    const id=req.params.id
+    User.findById(id)
+        .then(user =>{
+            res.json(user)
+        })
+        .catch(err =>{
+            res.json(err)
+        })
+}
+
+module.exports.create=(req,res) =>{
+    const data=req.body
+    const user=new User(data)
+    user.save()
+        .then(user =>{
+            res.json(user)
+        })
+        .catch(err =>{
+            res.json(err)
+        })
+}
+
+module.exports.update=(req,res) =>{
+    const id=req.params.id
+    const body=req.body
+    User.findByIdAndUpdate(id, { $set: body }, { new: true, runValidators: true })
+        .then(user =>{
+            res.json(user)
+        })
+        .catch(err =>{
+            res.json(err)
+        })
+}
+
+module.exports.destroy=(req,res) =>{
+    const id=req.params.id
+    User.findByIdAndDelete(id)
+        .then(user =>{
+            res.json(user)
+        })
+        .catch(err =>{
+            res.json(err)
+        })
+} */

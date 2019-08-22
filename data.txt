@@ -1,0 +1,26 @@
+//user
+{
+	
+	"username": "user1",
+    "email":"user1@gmail.com",
+    "password": "password123",
+    "mobile":9876543210,
+    "organisation":"Tech solution",
+    "gst":"abc890d"
+}
+
+
+token 
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkZWM5YjVhYTUwMjEwZTg4ZjAwZTUiLCJ1c2VybmFtZSI6InVzZXIxIiwib3JnYW5pc2F0aW9uTmFtZSI6eyJyb2xlIjoiQURNSU4iLCJfaWQiOiI1ZDVkZWM5YjVhYTUwMjEwZTg4ZjAwZTUiLCJ1c2VybmFtZSI6InVzZXIxIiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRKdWhpdFFWWWFpQ2U4ckZKNmc1Y3NlQUNzVGdPME9OWHFSZENaT3gvbWE3V3VVSUlzak42aSIsIm9yZ2FuaXNhdGlvbklkIjoiNWQ1ZGVjOWI1YWE1MDIxMGU4OGYwMGU0IiwibW9iaWxlIjo5ODc2NTQzMjEwLCJ0b2tlbnMiOltdLCJfX3YiOjB9LCJyb2xlIjoiQURNSU4iLCJjcmVhdGVkQXQiOjE1NjY0Mzc5Mjk4MzEsImlhdCI6MTU2NjQzNzkyOX0.xVDtUupEK0dmzfMJN4LKE_TCbdCsIcyJ18nDQOn8Ko4
+
+//category
+[
+    {
+        "brands": [],
+        "_id": "5d5df3692666a500bc803a3e",
+        "name": "Mobile",
+        "organisationId": "5d5dec9b5aa50210e88f00e4",
+        "__v": 0
+    }
+]

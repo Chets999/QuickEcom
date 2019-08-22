@@ -5,11 +5,22 @@ const Brands = require('../models/brand_master')
 
 module.exports.list = (req, res) => {
 
-    Category.find()
+    Category.find({ organisationId: req.user.organisationId })
         .then(users => res.json(users))
         .catch(err => res.json(err))
 }
 
+
+module.exports.show = (req, res) => {
+    const id = req.params.id
+    Category.findById({ _id: id, organisationId: req.user.organisationId })
+        .then(category => {
+            res.json(category)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+}
 
 
 module.exports.create = (req, res) => {
@@ -27,4 +38,16 @@ module.exports.create = (req, res) => {
         })
 }
 
+
+module.exports.update=(req,res) =>{
+    const id=req.params.id
+    const body=req.body
+    Category.findByIdAndUpdate(id, { $set: body }, { new: true, runValidators: true })
+        .then(category =>{
+            res.json(category)
+        })
+        .catch(err =>{
+            res.json(err)
+        })
+}
 
