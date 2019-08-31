@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const customerSchema = new Schema({
 
-    companyName: {
+    name: {
         type: String,
         required: true,
         unique: true
@@ -13,12 +13,12 @@ const customerSchema = new Schema({
         type: String,  //Online or Offline or Wholesalers
         required: true
     },
-    companyEmail: {
+    email: {
         type: String,
         required: true,
         unique: true
     },
-    companyContact: {
+    contact: {
         type: String,
         required: true,
         unique: true

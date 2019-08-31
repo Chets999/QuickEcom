@@ -6,14 +6,12 @@ const Schema = mongoose.Schema
 const productSchema = new Schema({
     name: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    modelnumber: {
+    model: {
         type: String,
         required: true,
         unique: true
-
     },
     categoryId: {
 
@@ -22,20 +20,23 @@ const productSchema = new Schema({
         ref: 'Category'
     },
 
-    brandid: {
+    brandId: {
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'Brand'
     },
-    productdescription: {
+    description: {
         type: String,
         required: true,
-        unique: true
+
     },
-    Color: {
+    color: {
         type: String,
         required: true,
-        unique: true
+    },
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
     }
 
 })

@@ -26,7 +26,7 @@ module.exports.show = (req, res) => {
 module.exports.create = (req, res) => {
 
     const data = req.body
-    const vendor = new Vendor(data)
+    const customer = new Customer(data)
     customer.organisationId = req.user.organisationId
     customer.save()
         .then(customer => {

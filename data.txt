@@ -9,6 +9,20 @@
     "gst":"abc890d"
 }
 
+{
+    "notice": "successfully created a User with role :",
+    "user": {
+        "role": "REVIEWER",
+        "_id": "5d5f5201acfa950560f4d661",
+        "username": "reviewer1",
+        "email": "reviewer1@gmail.com",
+        "password": "$2a$10$uq44ljqnBmm/SntM5/r1kuFnNqOzB.ncudRQxGm4YbnL/qDh1wdqK", //pass123
+        "organisationId": "5d5dec9b5aa50210e88f00e4",
+        "mobile": 9887766554,
+        "tokens": [],
+        "__v": 0
+    }
+}
 
 token 
 
@@ -35,10 +49,55 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDVkZWM5YjVhYTUwMjEwZTg4ZjAwZTU
 }
 
 
-Mobile: "5d5e2e191c9d4400005db0bf"
 
 TV:"5d5e20e4f84e244b2849f226"
+fan:5d5e33cd0c8dfd39ecb4299c
+laptop:5d5e34c90c8dfd39ecb4299f
 
 
-	"name":"CGI",
-	"categories":["5d5e33cd0c8dfd39ecb4299c","5d5e20e4f84e244b2849f226","5d5e34c90c8dfd39ecb4299f]
+
+
+//categories
+{
+	"name":"Acer",
+	"categories":["5d5e33cd0c8dfd39ecb4299c","5d5e20e4f84e244b2849f226","5d5e34c90c8dfd39ecb4299f"]
+}
+
+//product & initalStock( warehouse )
+{
+	"name":"HP Pavilion",
+	"model":"AB032",
+	"categoryId":"5d5e34c90c8dfd39ecb4299f",
+	"brandId":"5d5e31762974de3a106635c0",
+	"description":"i5 , 8 GB ram , 1TB",
+	"color":"silver",
+	"initalStock":"100",
+	"commitedStock":"0",
+	"unitPrice":"45000",
+	"buyPrice":"38000",
+	"wholesalePrice":"40000",
+	"retailPrice":"42000"
+}5d5fc6a7bb4b702b7451f3f5
+
+//customer
+{
+    "name":"customer1",
+    "type":"online",
+    "email":"customer1@gmail.com",
+    "contact":"9911223344",
+    "shippingAddress":"1/11 south street,HSR Layout,Banglore-620015"
+}
+
+//order
+{
+ "orderDate":"2019-08-23",
+ "customerdId":"",
+ "shipmentDate":2019-08-25",
+ "orderItems":[{
+
+ }]
+
+}
+
+}
+

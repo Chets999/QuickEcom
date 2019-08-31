@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 
 
 const warehouseSchema = new Schema({
-    productid: {
+    productId: {
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'Product'

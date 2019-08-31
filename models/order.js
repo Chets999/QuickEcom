@@ -2,40 +2,49 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const orderSchema = new Schema({
-    
+
     orderDate: {
-                type: Date,
-                required: true
+        type: Date,
+        required: true
     },
-    shipmentDate:{
-                type: Date,
-                required: true
+    customerId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Customer'
     },
-    orderedItems: [{ 
-                    lineproductID:{
-                        type: Schema.Types.ObjectId,
-                        ref: 'Product' 
-                                    },
-                    lineQuantity:{
-                                type:Number,
-                                required: true
-                    },
-                    linePrice:{
-                        type:Number,
-                        required: true
-                    },
-                    lineDiscount:{
-                                    type:Number,
-                                    required: true
-                    },
-                    lineTotal:{
-                                    type:Number,
-                                    required: true
-                    }
+    shipmentDate: {
+        type: Date,
+        required: true
+    },
+    orderItems: [{
+        productId: {
+            type: Schema.Types.ObjectId,
+            ref: 'Product',
+            required: true
+        },
+        quantity: {
+            type: Number,
+            required: true
+        },
+        unitPrice: {
+            type: Number,
+            required: true
+        },
+        discount: {
+            type: Number,
+            required: true
+        },
+        total: {
+            type: Number,
+            required: true
+        }
     }],
-    finalTotal:{
-                type: Number,
-                required: true
+    finalTotal: {
+        type: Number,
+        required: true
+    },
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
     }
 })
 
