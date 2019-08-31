@@ -4,17 +4,19 @@ const mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise // we are telling mongoose to use Promise of teh global/window object
 //Promise is an object used for performing Asynchrnous activities 
+//mongodb+srv://k23raj:<password>@cloudclusterdb-y9tqw.mongodb.net/test?retryWrites=true&w=majority
 
-    mongoose.connect('mongodb://localhost:27017/QuickEcom',{
-        useNewUrlParser: true
-    })
+//.MONGOLAB_URI 
+mongoose.connect('mongodb+srv://raj:raj123@cloudclusterdb-y9tqw.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true
+})
     .then(() => {
         console.log('connected to db')
     })
     .catch(() => {
-        console.log('Error connecting to DB', err)        
+        console.log('Error connecting to DB', err)
     })
 
-    
+
 
 module.exports = mongoose 

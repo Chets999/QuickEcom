@@ -2,11 +2,11 @@
 
 //This model is used to capture the 
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 
-const warehouseSchema = new Schema ({
-    productid:{
+const warehouseSchema = new Schema({
+    productId: {
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'Product'
@@ -17,28 +17,32 @@ const warehouseSchema = new Schema ({
     },
     committedStock: {
         type: Number,
-        required: true   
+        required: true
     },
     unitPrice: {
         type: Number,
-        required: true 
+        required: true
     },
     buyPrice: {
         type: Number,
-        required: true 
+        required: true
     },
     wholesalePrice: {
         type: Number,
-        required: true 
+        required: true
     },
     retailPrice: {
         type: Number,
-        required: true 
+        required: true
+    },
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
     }
-    
+
 })
 
 
-const WareHouse = mongoose.model('WareHouse', warehouseSchema) 
+const WareHouse = mongoose.model('WareHouse', warehouseSchema)
 
-module.exports =  WareHouse
+module.exports = WareHouse

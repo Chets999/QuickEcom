@@ -36,17 +36,17 @@ const userSchema = new Schema({
         type: Number,
         required: true,
         unique: true,
-        minlength:10,
-        maxlength:10
+        minlength: 10,
+        maxlength: 10
     },
-    organisationid: {
-     type: Schema.Types.ObjectId,
-     required: true,
-     ref: 'Organisation'
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'Organisation'
     },
     role: {
         type: String,
-        enum: ['RECONCILER', 'REVIEWER','ADMIN'],
+        enum: ['RECONCILER', 'REVIEWER', 'ADMIN'],
         default: 'ADMIN'
     },
     tokens: [
@@ -71,46 +71,46 @@ const userSchema = new Schema({
 
 
 //Pre Hooks -- Pre SAVE 
-userSchema.pre('save',function(next){
+userSchema.pre('save', function (next) {
     const user = this
-    if(user.isNew){
+    if (user.isNew) {
         bcryptjs.genSalt(10)
-    .then(function(salt){
-        bcryptjs.hash(user.password,salt)
-                .then(function(encryptedPassword){
+            .then(function (salt) {
+                bcryptjs.hash(user.password, salt)
+                    .then(function (encryptedPassword) {
                         user.password = encryptedPassword
                         next()
-                })
-    })
-    }else{
+                    })
+            })
+    } else {
         next()
     }
-    
+
 })
 
 //Own Instance Methods 
-userSchema.methods.generateToken = function(){
+userSchema.methods.generateToken = function () {
     const user = this
     const tokenData = {
         _id: user._id,
         username: user.username,
         Organisationid: user.organisationid,
-        organisationName: user.populate({ path: "organisation", select: "name"}),
+        organisationName: user.populate({ path: "organisation", select: "name" }),
         role: user.role,
         createdAt: Number(new Date())
-    } 
+    }
     console.log(tokenData)
-    const token = jwt.sign(tokenData,'jwt@123')
+    const token = jwt.sign(tokenData, 'jwt@123')
     user.tokens.push({
         //token: token
         token
     })
 
     return user.save()
-        .then(function(user){
-                return Promise.resolve(token)
+        .then(function (user) {
+            return Promise.resolve(token)
         })
-        .catch(function(err){
+        .catch(function (err) {
             return Promise.reject(err)
         })
 
@@ -119,13 +119,13 @@ userSchema.methods.generateToken = function(){
 
 //Own Static Method 
 
-userSchema.statics.findByToken= function(token){
+userSchema.statics.findByToken = function (token) {
     const User = this
     let tokenData
-    try{
-        tokenData = jwt.verify(token,'jwt@123')
+    try {
+        tokenData = jwt.verify(token, 'jwt@123')
         console.log(tokenData)
-    }catch(err){
+    } catch (err) {
         return Promise.reject(err)
     }
 
@@ -138,32 +138,32 @@ userSchema.statics.findByToken= function(token){
 }
 
 //Class or Static Method
-userSchema.statics.findByCredentials = function(email,password){
+userSchema.statics.findByCredentials = function (email, password) {
     const NewUser = this // Here this refers to User model and hence capital U 
-       return NewUser.findOne({ email })
-       .then(function(user){
-           if(!user){
-               return Promise.reject('invalid email')
-           }
-           return bcryptjs.compare(password,user.password)
-                       .then(function(result){
-                               if(result){
-                                       return Promise.resolve(user)
-                                       //instead of shorthand way 
-                                       // return new Promise(function(resolve, reject){
-                                       //         resolve(user)
-                                       // })
-                               }else{
-                                   return Promise.reject('invalid password ')
-                               }
-                       })
-   
-       })
-       .catch(function(err){
-           return Promise.reject(err) //shorthand way of creating a new Promise object
-       })
-   
-   }
+    return NewUser.findOne({ email })
+        .then(function (user) {
+            if (!user) {
+                return Promise.reject('invalid email')
+            }
+            return bcryptjs.compare(password, user.password)
+                .then(function (result) {
+                    if (result) {
+                        return Promise.resolve(user)
+                        //instead of shorthand way 
+                        // return new Promise(function(resolve, reject){
+                        //         resolve(user)
+                        // })
+                    } else {
+                        return Promise.reject('invalid password ')
+                    }
+                })
+
+        })
+        .catch(function (err) {
+            return Promise.reject(err) //shorthand way of creating a new Promise object
+        })
+
+}
 
 const User = mongoose.model('User', userSchema)
 module.exports = User

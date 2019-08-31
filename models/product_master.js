@@ -1,19 +1,17 @@
 //This model is used to capture the 
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
 
-const productSchema = new Schema ({
-    name:{
+const productSchema = new Schema({
+    name: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    modelnumber:{
+    model: {
         type: String,
         required: true,
         unique: true
-
     },
     categoryId: {
 
@@ -22,25 +20,28 @@ const productSchema = new Schema ({
         ref: 'Category'
     },
 
-    brandid: {
-       type:   Schema.Types.ObjectId,
-       required: true,
-       ref: 'Brand'   
+    brandId: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: 'Brand'
     },
-    productdescription: {
+    description: {
         type: String,
         required: true,
-        unique: true
+
     },
-    Color:{
+    color: {
         type: String,
         required: true,
-        unique: true
+    },
+    organisationId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Organisation'
     }
-    
+
 })
 
 
-const Product = mongoose.model('Product', productSchema) 
+const Product = mongoose.model('Product', productSchema)
 
-module.exports =  Product
+module.exports = Product
