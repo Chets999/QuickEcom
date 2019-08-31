@@ -76,3 +76,22 @@ module.exports.destroyAll = (req, res) => {
         .then(users =>
             res.send('all users deleted successfully '))
 }
+
+// localhost:3000/users/account 
+module.exports.account=(req,res)=>{
+    const { user } = req 
+    res.send(user)
+}
+
+
+// localhost:3000/users/logout
+module.exports.logout=(req,res)=>{
+    const { user, token } = req 
+    User.findByIdAndUpdate(user._id, { $pull: { tokens: { token: token }}})
+        .then(function(){
+            res.send({notice: 'successfully logged out'})
+        })
+        .catch(function(err){
+            res.send(err)
+        })
+}

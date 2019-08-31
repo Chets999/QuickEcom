@@ -16,6 +16,8 @@ router.get('/users', usersController.list)
 router.post('/users/login', usersController.login)
 router.post('/users/register', usersController.create)
 router.delete('/users/delete', usersController.destroyAll)
+router.get('/users/account',authenticateUser,usersController.account)
+router.delete('/users/logout',authenticateUser, usersController.logout)
 
 
 
